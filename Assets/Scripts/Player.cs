@@ -108,7 +108,7 @@ public class Player : MonoBehaviour {
         if (origin == this)
             return;
         if (origin != null && currentLife - damage <= 0)
-            origin.givePoints(points);
+            origin.givePoints(points, true);
         DealDamage(damage);
     }
 
@@ -136,10 +136,10 @@ public class Player : MonoBehaviour {
         orb = null;
     }
 
-    public void givePoints(int points)
+    public void givePoints(int points, bool vibrate)
     {
         playerSpawner.GivePoints(points);
-        if (points >= 10)
+        if (vibrate && points >= 10)
             StartCoroutine(VibrateN(2, .3f, 4f, .4f));
     }
 

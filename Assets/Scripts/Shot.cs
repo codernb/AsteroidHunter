@@ -28,7 +28,12 @@ public class Shot : MonoBehaviour {
             Destroy(gameObject);
         }
         if (other.tag == "Obstacle")
+        {
+            var obstacleController = other.GetComponent<ObstacleController>();
+            if (obstacleController != null)
+                obstacleController.Hit(origin);
             Destroy(gameObject);
+        }
     }
 
 }

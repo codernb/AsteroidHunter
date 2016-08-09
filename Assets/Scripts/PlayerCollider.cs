@@ -37,7 +37,7 @@ public class PlayerCollider : MonoBehaviour {
 
     public void givePoints(int points)
     {
-        player.givePoints(points);
+        player.givePoints(points, true);
     }
 
     public void DealDamage(float damage, Player origin)
